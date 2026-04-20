@@ -301,3 +301,14 @@ A few sentences about what you learned:
 
 ![Terminal output showing top song recommendations](images/output.png)
 
+### High-Energy Pop / Chill Lofi
+![High-Energy Pop and Chill Lofi recommendations](images/new-profile-1.png)
+
+### Deep Intense Rock / Late-Night Soul
+![Deep Intense Rock and Late-Night Soul recommendations](images/new-profile-2.png)
+
+### Sad Workout / Unknown Genre
+![Sad Workout and Unknown Genre recommendations](images/edge-case-1.png)
+
+### Acoustic Headbanger / Genre Trap
+![Acoustic Headbanger and Genre Trap recommendations](images/edge-case-2.png)
