@@ -29,6 +29,94 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
+Real world systems like spoitify use a combo of collaboritive filtering which reccomeneds songs based on what similar users have listened to. The other way is content based filtering which recommends songs based on properties of the actual music. Platforms like spotify use both, like listening history, skips, and acoustic features together. My version however, will have to focus on content based filtering because we dont have user history data.  
+
+features Song:
+- id
+- title
+- artist
+- genre
+- mood
+- energy
+- danceability
+- acousticness 
+-valence
+- tempo_BPM
+- 
+
+features userprofile:
+- fav_genre
+- fav_mood
+- target_enerfy
+- likes_acoustic
+
+This recommender uses **content-based filtering** — it matches song attributes directly against a user's stated preferences. Real-world platforms like Spotify combine this with collaborative filtering (recommendations based on what similar users listened to), but this simulation focuses on content-based only since there is no user history data.
+
+### Song Features
+
+| Feature | Type | Role in scoring |
+|---|---|---|
+| `genre` | categorical | +2.0 if exact match |
+| `mood` | categorical | +1.0 if exact match |
+| `energy` | float 0–1 | proximity to `target_energy` → up to +1.0 |
+| `acousticness` | float 0–1 | proximity to acoustic preference → up to +0.5 |
+| `valence` | float 0–1 | musical positiveness (secondary signal) |
+| `danceability` | float 0–1 | rhythm intensity (secondary signal) |
+| `tempo_bpm` | float | speed in beats per minute (secondary signal) |
+
+### User Profile
+
+| Field | Type | Description |
+|---|---|---|
+| `genre` | string | preferred genre |
+| `mood` | string | preferred mood |
+| `target_energy` | float 0–1 | ideal energy level |
+| `likes_acoustic` | bool | maps to acoustic target of 0.8 (True) or 0.2 (False) |
+
+### Scoring Rule (per song)
+
+```
+score = genre match (+2.0 or 0)
+      + mood match  (+1.0 or 0)
+      + 1.0 × (1 − |song_energy − target_energy|)
+      + 0.5 × (1 − |song_acousticness − acoustic_target|)
+
+max possible score: 4.5
+```
+
+### Data Flow
+
+```mermaid
+flowchart TD
+    A([User Preferences\ngenre · mood · target_energy · likes_acoustic]) --> B
+
+    B[load_songs\nRead songs.csv → list of 20 song dicts] --> C
+
+    C{For each song\nin catalog} --> D
+
+    D[score_song\nCompute points] --> E
+    E[Genre match?\n+2.0 or +0.0] --> F
+    F[Mood match?\n+1.0 or +0.0] --> G
+    G[Energy proximity\n+0.0 to +1.0] --> H
+    H[Acousticness proximity\n+0.0 to +0.5] --> I
+
+    I[Append\nsong · score · explanation\nto results list] --> J
+
+    J{More songs?} -->|Yes| C
+    J -->|No| K
+
+    K[Sort results by score descending] --> L
+    L[Slice top K] --> M
+
+    M([Output\nRanked recommendations\nwith scores and explanations])
+
+    style A fill:#4a90d9,color:#fff
+    style M fill:#27ae60,color:#fff
+    style D fill:#f5a623,color:#fff
+    style K fill:#8e44ad,color:#fff
+    style L fill:#8e44ad,color:#fff
+```
+
 ---
 
 ## Getting Started
@@ -208,4 +296,8 @@ A few sentences about what you learned:
 - What surprised you about how your system behaved
 - How did building this change how you think about real music recommenders
 - Where do you think human judgment still matters, even if the model seems "smart"
+
+## Recommendation Output
+
+![Terminal output showing top song recommendations](images/output.png)
 
