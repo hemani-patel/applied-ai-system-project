@@ -1,4 +1,4 @@
-# 🎵 Music Recommender Simulation
+# 🎵 Reliable and Explainable AI Music Recommender
 
 ## Project Summary
 
