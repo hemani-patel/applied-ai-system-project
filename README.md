@@ -9,6 +9,8 @@ This project matters because reccomendation systems are very common but they usu
 
 ## How The System Works
 
+LOOM VIDEO LINK: https://www.loom.com/share/6324442407454fc5a50327cd57c99e10
+
 The system has 2 CLI modes: Normal and Test. The normal mode runs the recommender on listener profiles and prints top songs with scores, confidence labels, and exaplainations. The test mode runs predefined standard, edge case, and invalid profiles though the same pipeline and applied automatic checks to make sure the behvaior mathes what is expected. 
 
 In normal mode, the system validates a listener profile, checks if the requested genre or mood exists in the catalog, then generates recommendations with scores, confidence labels, and explanations before logging the results. In test mode, the evaluator runs predefined profiles through the same recommendation pipeline, checks conditions such as genre matches, includes fallback handling, and validation failures, and prints a final pass/fial summary.
