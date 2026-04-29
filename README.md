@@ -4,6 +4,7 @@
 
 This project is a  CLI based busic recommendation system that matches songs to listener profiles using condidence labels, weighted scoring, explaination generation, and a built in reliability testing workflow. This project is an extension of the previous music reccomender simulation project into an applied AI system by adding guardrails, logging, edge case handling, and automatic evalution. 
 This project matters because reccomendation systems are very common but they usually seem like black boxes that we use but don't fully understand. I wanted to build a smaller transparent version recommends songs as well as explaining why those songs were chosen and tests whether the behvaior makes sense.
+
 ---
 
 ## How The System Works
@@ -205,99 +206,11 @@ normal recommendation mode
 That made the project easier to run and explain.
 
 One flawed suggestion was an earlier change that renamed keys like genre and mood to favorite_genre and favorite_mood, which broke consistency with the scoring logic. Catching and fixing that mismatch reinforced the importance of checking AI-generated code carefully rather than just automatically trusting it.
----
-
-## 2. Intended Use
-
-- What is this system trying to do
-- Who is it for
-
-Example:
-
-> This model suggests 3 to 5 songs from a small catalog based on a user's preferred genre, mood, and energy level. It is for classroom exploration only, not for real users.
 
 ---
 
-## 3. How It Works (Short Explanation)
 
-Describe your scoring logic in plain language.
-
-- What features of each song does it consider
-- What information about the user does it use
-- How does it turn those into a number
-
-Try to avoid code in this section, treat it like an explanation to a non programmer.
-
----
-
-## 4. Data
-
-Describe your dataset.
-
-- How many songs are in `data/songs.csv`
-- Did you add or remove any songs
-- What kinds of genres or moods are represented
-- Whose taste does this data mostly reflect
-
----
-
-## 5. Strengths
-
-Where does your recommender work well
-
-You can think about:
-- Situations where the top results "felt right"
-- Particular user profiles it served well
-- Simplicity or transparency benefits
-
----
-
-## 6. Limitations and Bias
-
-Where does your recommender struggle
-
-Some prompts:
-- Does it ignore some genres or moods
-- Does it treat all users as if they have the same taste shape
-- Is it biased toward high energy or one genre by default
-- How could this be unfair if used in a real product
-
----
-
-## 7. Evaluation
-
-How did you check your system
-
-Examples:
-- You tried multiple user profiles and wrote down whether the results matched your expectations
-- You compared your simulation to what a real app like Spotify or YouTube tends to recommend
-- You wrote tests for your scoring logic
-
-You do not need a numeric metric, but if you used one, explain what it measures.
-
----
-
-## 8. Future Work
-
-If you had more time, how would you improve this recommender
-
-Examples:
-
-- Add support for multiple users and "group vibe" recommendations
-- Balance diversity of songs instead of always picking the closest match
-- Use more features, like tempo ranges or lyric themes
-
----
-
-## 9. Personal Reflection
-
-A few sentences about what you learned:
-
-- What surprised you about how your system behaved
-- How did building this change how you think about real music recommenders
-- Where do you think human judgment still matters, even if the model seems "smart"
-
-## Recommendation Output
+## Recommendation Output Previous 
 
 ![Terminal output showing top song recommendations](images/output.png)
 
@@ -312,3 +225,11 @@ A few sentences about what you learned:
 
 ### Acoustic Headbanger / Genre Trap
 ![Acoustic Headbanger and Genre Trap recommendations](images/edge-case-2.png)
+
+## Improved Recommendation Output 
+
+### Normal Recommendation Mode
+![Normal recommendation output](assets/normal-example.png)
+
+### Reliability Evaluator Mode
+![Reliability evaluator output](assets/test-example.png)
