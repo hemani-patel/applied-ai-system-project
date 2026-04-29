@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-This project is a  CLI based busic recommendation system that matches songs to listener profiles using condidence labels, weighted scoring, explaination generation, and a built in reliability testing workflow. This project is an extension of the previous music reccomender simulation project into an applied AI system by adding guardrails, logging, edge case handling, and automatic evalution. 
+This project is a  CLI based busic recommendation system that matches songs to listener profiles using condidence labels, weighted scoring, explaination generation, and a built in reliability testing workflow. This project is an extension of the previous music reccomender simulation project into an applied AI system by adding guardrails, logging, edge case handling, and automatic evalution. The original version of the project loaded songs from a CSV file, compared them to a listener profile, and returned top recommendations based on a weighted scoring system.
 This project matters because reccomendation systems are very common but they usually seem like black boxes that we use but don't fully understand. I wanted to build a smaller transparent version recommends songs as well as explaining why those songs were chosen and tests whether the behvaior makes sense.
 
 ---
