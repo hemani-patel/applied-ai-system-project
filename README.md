@@ -2,9 +2,7 @@
 
 ## Project Summary
 
-This project is a  CLI based busic recommendation system that matches songs to listener profiles using condidence labels, weighted scoring, explaination generation, and a built in reliability testing workflow. This project is an extension of the previous music reccomender simulation project into an applied AI system by adding guardrails, logging, edge case handling, and automatic evalution. 
-
-This project matters because reccomendation systems are very common but they usually seem like black boxes that we use but don't fully understand. I wanted to build a smaller transparent version recommends songs as well as explaining why those songs were chosen and tests whether the behvaior makes sense.
+This project is a  CLI based busic recommendation system that matches songs to listener profiles using condidence labels, weighted scoring, explaination generation, and a built in reliability testing workflow. This project is an extension of the previous music reccomender simulation project into an applied AI system by adding guardrails, logging, edge case handling, and automatic evalution. This project matters because reccomendation systems are very common but they usually seem like black boxes that we use but don't fully understand. I wanted to build a smaller transparent version recommends songs as well as explaining why those songs were chosen and tests whether the behvaior makes sense.
 ---
 
 ## How The System Works
@@ -199,12 +197,9 @@ Collaboration with AI:
 AI-assisted coding tools helped me move faster, but they were not always right.
 
 One helpful suggestion was using a clearer CLI structure for two modes:
-
 normal recommendation mode
 --test evaluator mode
-
 That made the project easier to run and explain.
-
 One flawed suggestion was an earlier change that renamed keys like genre and mood to favorite_genre and favorite_mood, which broke consistency with the scoring logic. Catching and fixing that mismatch reinforced the importance of checking AI-generated code carefully rather than just automatically trusting it.
 ---
 
