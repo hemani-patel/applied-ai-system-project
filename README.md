@@ -74,14 +74,6 @@ python -m src.main
 python -m src.main --test
 ```
 
-### Running Tests
-
-Run the starter tests with:
-
-```bash
-pytest
-```
-
 ---
 
 ## Sample Interactions:
